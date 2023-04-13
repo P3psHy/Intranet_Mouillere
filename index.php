@@ -1,8 +1,7 @@
 <!-- 
 <?php
-
 // $ip_adress = $_SERVER["HTTP_X_FORWARDED_FOR"];
-// $ip_adress_whitelist = "81.252.113.241";
+// $ip_adress_whitelist = "IP_MOUILLERE";
 
 // if ($ip_adress == $ip_adress_whitelist) {
 // } else {
