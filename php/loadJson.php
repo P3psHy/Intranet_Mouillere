@@ -1,6 +1,6 @@
 <?php
 
-file_put_contents("data.json", json_encode([]));
+file_put_contents("../js/data.json", json_encode([]));
 
 require "connection.php" ;
 
@@ -53,6 +53,5 @@ else
 
 
 
-echo "<a href=\"index.php\"><button>Retour index</button></a>";
 ?>
 

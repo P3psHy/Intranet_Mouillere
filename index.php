@@ -1,5 +1,6 @@
 <!-- 
 <?php
+require_once "php/loadJson.php";
 // $ip_adress = $_SERVER["HTTP_X_FORWARDED_FOR"];
 // $ip_adress_whitelist = "IP_MOUILLERE";
 
@@ -216,17 +217,16 @@
                     <a class="close" href="#">&times;</a>
                     <div class="content">
                       <select name="listeRecherche" class="classic" id="listeRecherche" onchange="verifcontenu()">
-                          <option value="default" selected>Sélectionez un Groupe</option>
-                          <option value="">Tous</option>
-                          <option value="Administration">Administration</option>
-                          <option value="Service Support">Service Support</option>
-                          <option value="Service Développement et Communication">Service Développement et Communication</option>
-                          <option value="Pôle Pedagogique">Pôle Pedagogique</option>
-                          <option value="Service Coordination">Service Coordination</option>
-                          <option value="Service Pôle Educatif">Service Pôle Educatif</option>
-                          <option value="Maintenance SI">Maintenance SI</option>
-                          <option value="Service CDR">Service CDR</option>
-                          <option value="Serre Maraichere">Serre Maraichere</option>
+                      <option value="0" selected>Sélectionez un Groupe</option>
+                        <option value="">Tous</option>
+                        <?php
+                        $json = file_get_contents('data.json');
+                        $json_data = json_decode($json,true)['data'];
+                        
+                        foreach ($json_data as $groupe) {
+                            echo"<option value=\"".$groupe["id"]."\">".$groupe["nom"]."</option>";
+                        }
+                        ?>
                       </select>
 
                       <input type="text" name="recherche" id="recherche" placeholder="Nom" onkeyup="verifcontenu()">
@@ -288,6 +288,6 @@
     </footer>
 
       <script src="js/script.js"></script>
-      <script src="js/scriptAnnuaire.js"></script>
+      <script src="js/newScriptAnnuaire.js"></script>
       
 </html>
