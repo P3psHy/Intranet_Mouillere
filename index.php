@@ -1,15 +1,14 @@
-Procedure Gestibase et LSA 
 <!-- 
 <?php
 
-$ip_adress = $_SERVER["HTTP_X_FORWARDED_FOR"];
-$ip_adress_whitelist = "81.252.113.241";
+// $ip_adress = $_SERVER["HTTP_X_FORWARDED_FOR"];
+// $ip_adress_whitelist = "81.252.113.241";
 
-if ($ip_adress == $ip_adress_whitelist) {
-} else {
-    header('Location: https://intranet.campuslamouillere.fr/erreur');
-    exit();
-}
+// if ($ip_adress == $ip_adress_whitelist) {
+// } else {
+//     header('Location: https://intranet.campuslamouillere.fr/erreur');
+//     exit();
+// }
 
 ?> 
 -->
