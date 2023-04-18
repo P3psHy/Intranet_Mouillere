@@ -256,12 +256,6 @@ background-color: red;
   transition-duration: 0.7s;
 }
 
-.button1 {
-  position: relative;
-  width: 100px;
-  top: 30px;
-}
-
 .box1 a {
 
   text-decoration: none;
@@ -359,6 +353,12 @@ background-color: red;
   bottom:25px;
   position: relative;
   left: 85px;
+}
+
+.button1 {
+  position: relative;
+  width: 100px;
+  top: 30px;
 }
 
 .button2 {
