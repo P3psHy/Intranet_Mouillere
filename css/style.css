@@ -299,6 +299,12 @@ background-color: red;
   right: 42px;
 }
 
+.box3add {
+  position: relative; 
+  right: 10px;
+  color: white;
+}
+
 .box4 a {
 
   text-decoration: none;

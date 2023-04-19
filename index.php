@@ -177,7 +177,7 @@ require_once "php/loadJson.php";
               </div>
               <div class="panel_ressource_note">
                 <div class="box3">
-                  <a class="button3" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/drive/folders/1bM4JCy-g5q1ftKlc6gcXL6hq5TO5GDOF?usp=share_link"><img src="img/icons/note-collante.png" style="width: 100px;"><span- style="color:white;">Note de service</span-></a>
+                  <a class="button3" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/drive/folders/1bM4JCy-g5q1ftKlc6gcXL6hq5TO5GDOF?usp=share_link"><img src="img/icons/note-collante.png" style="width: 100px;"><span- class="box3add">Note de service</span-></a>
                 </div>
               </div>
               <div class="panel_ressource_car">
