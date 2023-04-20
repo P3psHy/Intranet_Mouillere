@@ -124,7 +124,7 @@ require_once "php/loadJson.php";
               </div>
               <div class="panel_ressource_document">
                 <div class="box2">
-                  <a class="button2" href="#popup2"><img src="img/icons/document-texte.png" style="width: 100px"><span- style="color:white;">Document</span-></a>
+                  <a class="button2" href="#popup2"><img src="img/icons/document-texte.png" style="width: 100px"><span- class="document-text">Document</span-></a>
                 </div>
                 <div id="popup2" class="overlay">
                   <div class="popup2">
