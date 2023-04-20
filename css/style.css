@@ -18,7 +18,7 @@ position: relative;
 html {
   position: relative;
   width: 100%;
-  bottom:240px;
+  bottom:334px;
 
 }
 
@@ -27,7 +27,7 @@ html {
 .logo_campus {
 
   position: relative;
-  bottom: 550px;
+  bottom: 507px;
   text-align: center;
 }
 
@@ -38,7 +38,7 @@ html {
   width: 100%;
   margin: 0;
   padding: 0;
-  top:145px;
+  top: 329px;
   position: relative;
 
 }
@@ -57,7 +57,7 @@ html {
 .title_cont h3 {
 
 position: relative;
-bottom: 483px;
+bottom: 448px;
 z-index: 999;
 right: 400px;
 font-size: 28px;
@@ -379,6 +379,16 @@ background-color: red;
   top: 30px;
 }
 
+.text-grandbox3 {
+  position: relative;
+  left: 3px;
+  text-overflow: clip;
+  overflow: hidden;
+  color: white;
+  width: 141px;
+  display: inline-block;
+}
+
 .button4 {
   position: relative;
   width: 100px;
@@ -389,6 +399,17 @@ background-color: red;
   position: relative;
   width: 100px;
   top: 30px;
+}
+
+.text-grand {
+
+  position: relative;
+  left: 3px;
+  text-overflow: clip;
+  overflow: hidden;
+  color: white;
+  width: 124px;
+  display: inline-block;
 }
 
 .button6 {
