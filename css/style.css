@@ -22,6 +22,13 @@ html {
 
 }
 
+@media screen and (min-width: 1700px) {
+  html {
+    position: relative;
+    width: 100%;
+    bottom:334px;
+  }
+}
 
 
 .logo_campus {
@@ -29,6 +36,15 @@ html {
   position: relative;
   bottom: 507px;
   text-align: center;
+}
+
+
+@media screen and (min-width: 1700px) {
+  .logo_campus {
+    position: relative;
+    bottom: 607px;
+    text-align: center;
+  }
 }
 
 
@@ -62,9 +78,22 @@ z-index: 999;
 right: 400px;
 font-size: 28px;
 font-family: Calibri;
-
-
 }
+
+
+@media screen and (min-width: 1700px) {
+  .title_cont h3 {
+
+    position: relative;
+    bottom: 548px;
+    z-index: 999;
+    right: 400px;
+    font-size: 28px;
+    font-family: Calibri;
+    }
+    
+}
+
 
 .panel_ressource_ressource {
 height: 0;
@@ -100,6 +129,7 @@ height: 0;
 position: relative;
 background-color: red;
 }
+
 .box1 {
   position: relative;
   right: 200px;
@@ -112,7 +142,25 @@ background-color: red;
   background-clip: padding-box;
   text-align: center;
   bottom:301px;
-}
+  }
+
+@media screen and (min-width: 1700px) {
+    .box1 {
+      position: relative;
+      right: 240px;
+      width: 12%;
+      height: 177px;
+      margin: 0;
+      background: rgba(255,255,255,0.2);
+      padding: 0;
+      border: 2px solid #fff;
+      background-clip: padding-box;
+      text-align: center;
+      bottom:301px;
+    }
+ }
+
+
 
 .box1:hover {
   position: relative;/*302c34*/
@@ -127,6 +175,23 @@ background-color: red;
   bottom: 301px;
   transition-duration: 0.7s;
 } 
+
+@media screen and (min-width: 1700px) {
+  .box1:hover {
+    position: relative;/*302c34*/
+    right: 240px;
+    width: 12%;
+    margin: 0 ;
+    background: #606464;
+    padding: 0;
+    border: 2px solid #fff;
+    background-clip: padding-box;
+    text-align: center;
+    bottom: 301px;
+    transition-duration: 0.7s;
+  }
+}
+
 
 .box2 {
   position: relative;
@@ -168,6 +233,22 @@ background-color: red;
   bottom: 301px;
 }
 
+@media screen and (min-width: 1700px) {
+  .box3 {
+    position: relative;
+    left: 240px;
+    width: 12%;
+    height: 177px;
+    margin: 0;
+    background: rgba(255,255,255,0.2);
+    padding: 0;
+    border: 2px solid #fff;
+    background-clip: padding-box;
+    text-align: center;
+    bottom: 301px;
+  }
+}
+
 .box3:hover {
   position: relative;
   left: 200px;
@@ -180,6 +261,19 @@ background-color: red;
   transition-duration: 0.7s;
 }  
 
+@media screen and (min-width: 1700px) {
+  .box3:hover {
+    position: relative;
+    left: 240px;
+    width: 12%;
+    background: #606464;
+    border: 2px solid #fff;
+    background-clip: padding-box;
+    text-align: center;
+    bottom: 301px;
+    transition-duration: 0.7s;
+  }
+}
 .box4 {
   position: relative;
   left: 200px;
@@ -194,6 +288,23 @@ background-color: red;
   bottom: 500px;
 }
 
+
+@media screen and (min-width: 1700px) {
+  .box4 {
+    position: relative;
+    left: 240px;
+    width: 12%;
+    height: 177px;
+    margin: 0;
+    background: rgba(255,255,255,0.2);
+    padding: 0;
+    border: 2px solid #fff;
+    background-clip: padding-box;
+    text-align: center;
+    bottom: 500px;
+  }
+}
+
 .box4:hover {
   position: relative;
   width: 12%;
@@ -205,6 +316,19 @@ background-color: red;
   transition-duration: 0.7s;
 }
 
+@media screen and (min-width: 1200px) {
+
+  .box4:hover {
+    position: relative;
+    width: 12%;
+    background: #606464;
+    border: 2px solid #fff;
+    background-clip: padding-box;
+    text-align: center;
+    bottom: 500px;
+    transition-duration: 0.7s;
+  }
+}
 
 .box5 {
   position: relative;
@@ -244,6 +368,22 @@ background-color: red;
   bottom: 501px;
 }
 
+@media screen and (min-width: 1700px) {
+  .box6 {
+    position: relative;
+    right: 240px;
+    width: 12%;
+    height: 177px;
+    margin: 0;
+    background: rgba(255,255,255,0.2);
+    padding: 0;
+    border: 2px solid #fff;
+    background-clip: padding-box;
+    text-align: center;
+    bottom: 501px;
+  }
+}
+
 .box6:hover {
   position: relative;
   right: 200px;
@@ -254,6 +394,20 @@ background-color: red;
   text-align: center;
   bottom: 501px;
   transition-duration: 0.7s;
+}
+
+@media screen and (min-width: 1700px) {
+  .box6:hover {
+    position: relative;
+    right: 240px;
+    width: 12%;
+    background: #606464;
+    border: 2px solid #fff;
+    background-clip: padding-box;
+    text-align: center;
+    bottom: 501px;
+    transition-duration: 0.7s;
+  }
 }
 
 .box1 a {
@@ -757,6 +911,14 @@ background-color: red;
   bottom: 250px;
 }
 
+@media screen and (min-width: 1700px) {
+    .ico-menu img {
+      position: relative;
+      left: 650px;
+      bottom: 334px;
+    }
+}
+
 /* Documents */
 
 .btnDoc{
@@ -781,6 +943,8 @@ background-color: red;
 img {
   max-width: 100%;
 }
+
+
 .carousel-container {
   width: 1050px;
   margin: 50px auto;
