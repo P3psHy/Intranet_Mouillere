@@ -1,4 +1,4 @@
-<!-- 
+
 <?php
 session_start();
 // $ip_adress = $_SERVER["HTTP_X_FORWARDED_FOR"];
@@ -13,7 +13,6 @@ session_start();
     header('location: index.php');
   }
 ?> 
--->
 
 <!DOCTYPE html>
 <html>

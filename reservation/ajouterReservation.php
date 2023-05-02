@@ -20,6 +20,8 @@ if(!isset($_SESSION['username'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleReservation.css">
+
     <title>Ajout Réservation</title>
 </head>
 <body onload="verifButton()">
@@ -36,8 +38,8 @@ if(!isset($_SESSION['username'])){
             <input id="dateFin" name="dateFin" type="date" value="<?php if(isset($_REQUEST['dateFin'])){echo $_REQUEST['dateFin'];}else{ echo"";} ?>" onchange="verifDateFin()" required>
         </div>
 
-        <button id="voirVehicules" type="submit">Voir les véhicules utilisable</button>
-        <button type="reset">Annuler</button>
+        <button class="btn" id="voirVehicules" type="submit">Voir les véhicules utilisables</button>
+        <button class="btn" type="reset">Annuler</button>
 
         </form>
     </div>
@@ -76,11 +78,11 @@ if(!isset($_SESSION['username'])){
                     ?>
                 </select>
                 <input type="date" name="dateDebut" id="" value="<?php echo $_REQUEST['dateDebut']; ?>" hidden>
-                <input type="date" name="dateFin" id="" value="<?php echo $_REQUEST['dateDebut']; ?>" hidden>
+                <input type="date" name="dateFin" id="" value="<?php echo $_REQUEST['dateFin']; ?>" hidden>
 
                 <div>
-                    <button id="submitReservation" type="submit">Valider</button>
-                    <button type="reset">Annuler</button>
+                    <button class="btn" id="submitReservation" type="submit">Valider</button>
+                    <button class="btn" type="reset">Annuler</button>
                     
                 </div>
             </form>
@@ -89,7 +91,7 @@ if(!isset($_SESSION['username'])){
     <?php
     }
     ?>
-    <a href="../intranetPersonnel.php#popup4"><button>Retour</button></a>
+    <a href="../intranetPersonnel.php#popup4"><button class="btn">Retour</button></a>
     
 
 

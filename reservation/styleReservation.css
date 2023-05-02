@@ -1,0 +1,20 @@
+body{
+    background: rgb(34,155,126);
+    background: linear-gradient(45deg, rgba(34,155,126,1) 0%, rgba(234,74,46,1) 100%);
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.btn{
+    background-color: #ea4a2e;
+    border: thin solid #606464;
+
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+
+    color: white;
+    font-size: 15px;
+}

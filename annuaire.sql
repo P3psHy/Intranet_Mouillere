@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `administrateur` (
   `mail` varchar(50) NOT NULL,
   `psw` varchar(255) NOT NULL,
   PRIMARY KEY (`mail`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `administrateur`
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `groupes` (
   `telephone` varchar(100) DEFAULT NULL,
   `mail` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `groupes`
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `personnes` (
   `groupeId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `groupeId` (`groupeId`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `personnes`
