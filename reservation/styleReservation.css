@@ -10,15 +10,14 @@ body{
     margin: auto;
     background: #302c34;
     border-radius: 50px;
-
     display: flex;
-    width: 50%;
+    width: 60%;
     flex-flow: column wrap;
-
     justify-content: center;
     align-items: center;
-
     padding-bottom: 25px;
+    align-content: center;
+    flex-direction: column;
 }
 
 
@@ -66,11 +65,8 @@ label{
     font-size: 20px;
 } 
 
-
-
-
 .containerDate{
-    
+    padding-bottom: 20px;
 }
 
 .center{

@@ -34,11 +34,11 @@ if(!isset($_SESSION['username'])){
         <div class="containerDate">
             <form action="ajouterReservation.php" method="get">
             <div>
-                <label for="dateDebut">Date de début</label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date n'est pas déjà dépassé -->
+                <label for="dateDebut">Date de début: </label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date n'est pas déjà dépassé -->
                 <input class="input-date" name="dateDebut" type="date" value="<?php if(isset($_REQUEST['dateDebut'])){echo $_REQUEST['dateDebut'];}else{ echo"";} ?>" onchange="verifDateDebut()" required>
             </div>
             <div>
-                <label for="dateFin">Date de fin</label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date ne dépasse pas le temps autorisé par l'entreprise -->
+                <label for="dateFin">Date de fin: </label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date ne dépasse pas le temps autorisé par l'entreprise -->
                 <input class="input-date" id="dateFin" name="dateFin" type="date" value="<?php if(isset($_REQUEST['dateFin'])){echo $_REQUEST['dateFin'];}else{ echo"";} ?>" onchange="verifDateFin()" required>
             </div>
 
@@ -54,33 +54,35 @@ if(!isset($_SESSION['username'])){
             ?>
             <div class="containerDate">
                 <form action="addReservation.php" method="get">
-                    <label for="listeVehicule">Véhicules disponibles</label>
-                    <select name="idVehicule" id="listeVehicule" onchange="verifVehicule()">
-                        <option value="default" selected>Sélectionez un véhicule</option>
-                        <?php
-                        require_once "connection.php";
+                    <div>
+                        <label for="listeVehicule">Véhicules disponibles</label>
+                        <select name="idVehicule" id="listeVehicule" onchange="verifVehicule()">
+                            <option value="default" selected>Sélectionez un véhicule</option>
+                            <?php
+                            require_once "connection.php";
 
-                        $sqlVehicule=$connection ->prepare('SELECT * FROM vehicule WHERE vehicule.idVehicule NOT IN(SELECT vehicule.idVehicule
-                                                                                                                    FROM reservation
-                                                                                                                    INNER JOIN vehicule ON reservation.idVehicule = vehicule.idVehicule
-                                                                                                                    WHERE reservation.dateDebut >=:dateDebut AND reservation.dateFin <= :dateFin);');
+                            $sqlVehicule=$connection ->prepare('SELECT * FROM vehicule WHERE vehicule.idVehicule NOT IN(SELECT vehicule.idVehicule
+                                                                                                                        FROM reservation
+                                                                                                                        INNER JOIN vehicule ON reservation.idVehicule = vehicule.idVehicule
+                                                                                                                        WHERE reservation.dateDebut >=:dateDebut AND reservation.dateFin <= :dateFin);');
 
-                        $sqlVehicule->bindParam(":dateDebut", $_REQUEST['dateDebut']);
-                        $sqlVehicule->bindParam(":dateFin", $_REQUEST['dateFin']);
+                            $sqlVehicule->bindParam(":dateDebut", $_REQUEST['dateDebut']);
+                            $sqlVehicule->bindParam(":dateFin", $_REQUEST['dateFin']);
 
 
 
-                                                                                                                
-                        $sqlVehicule->execute();
-                        $ligneVehicule = $sqlVehicule->fetchall();
-                        
-                        
-                        foreach($ligneVehicule as $vehicule){
-                            echo'<option value="'.$vehicule['idVehicule'].'">'.$vehicule['marque'].' '.$vehicule['modele'].'</option>';
-                        }
+                                                                                                                    
+                            $sqlVehicule->execute();
+                            $ligneVehicule = $sqlVehicule->fetchall();
+                            
+                            
+                            foreach($ligneVehicule as $vehicule){
+                                echo'<option value="'.$vehicule['idVehicule'].'">'.$vehicule['marque'].' '.$vehicule['modele'].'</option>';
+                            }
 
-                        ?>
-                    </select>
+                            ?>
+                        </select>
+                    </div>
                     <input type="date" name="dateDebut" id="" value="<?php echo $_REQUEST['dateDebut']; ?>" hidden>
                     <input type="date" name="dateFin" id="" value="<?php echo $_REQUEST['dateFin']; ?>" hidden>
 
