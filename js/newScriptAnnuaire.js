@@ -84,7 +84,7 @@ function verifcontenu(){
                 annuaire.appendChild(nomElement);
 
                 //Récupère et ajoute le Mail et le Téléphone de la personne à la diuv
-                const info = "Mail: " + personne.email + " / Téléphone: " + personne.telephone;
+                const info = "Mail: " + personne.mail + " / Téléphone: " + personne.telephone;
                 const emailElement = document.createElement("p");
                 emailElement.textContent = info;
                 emailElement.style.cssText ="color: white; font-family: Calibri;";
@@ -95,7 +95,6 @@ function verifcontenu(){
               }
             }
             //Vérifier si aucune personne ne contient les caractères de nomPersonne pour supprimer le Titre du groupe
-            //"Si tout le groupe est vide, supprimer le titre du groupe"
             if(Object.keys(groupe.listePersonne).length == k){
               const dernierElement= annuaire.lastChild;
               annuaire.removeChild(dernierElement);
