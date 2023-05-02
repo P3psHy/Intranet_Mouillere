@@ -5,7 +5,25 @@ body{
     height: 100vh;
 }
 
-.btn{
+
+.box{
+    margin: auto;
+    background: #302c34;
+    border-radius: 50px;
+
+    display: flex;
+    width: 50%;
+    flex-flow: column wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 25px;
+}
+
+
+
+ .btn{
     background-color: #ea4a2e;
     border: thin solid #606464;
 
@@ -46,22 +64,15 @@ select{
 label{
     color: white;
     font-size: 20px;
-}
+} 
 
-.box{
-    padding-top: 15px;
-    padding-bottom: 25px;
-    background: #302c34;
-    border-radius: 50px;
-    width: 80%;
-    margin: auto;
-}
+
+
 
 .containerDate{
-    margin-left: 37%;
+    
 }
 
 .center{
-    margin-left: 45%;
-    color: #ffffff;
+    color: #ffffff; 
 }

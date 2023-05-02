@@ -27,7 +27,9 @@ if(!isset($_SESSION['username'])){
 <body onload="verifButton()">
 
     <div class="box">
-        <h2 class="center">Créér votre réservation</h2>
+        <div>
+            <h2 class="center" >Créér votre réservation</h2>
+        </div>
     
         <div class="containerDate">
             <form action="ajouterReservation.php" method="get">
@@ -93,7 +95,11 @@ if(!isset($_SESSION['username'])){
         <?php
         }
         ?>
-        <a class="center" href="../intranetPersonnel.php#popup4"><button class="btn">Retour</button></a>
+
+        <div>
+            <a class="center" href="../intranetPersonnel.php#popup4"><button class="btn">Retour</button></a>
+        </div>
+
     </div>
      
 
