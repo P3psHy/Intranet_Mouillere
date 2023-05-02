@@ -25,74 +25,77 @@ if(!isset($_SESSION['username'])){
     <title>Ajout Réservation</title>
 </head>
 <body onload="verifButton()">
-    <h2>Créér votre réservation</h2>
+
+    <div class="box">
+        <h2 class="center">Créér votre réservation</h2>
     
-    <div>
-        <form action="ajouterReservation.php" method="get">
-        <div>
-            <label for="dateDebut">Date de début</label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date n'est pas déjà dépassé -->
-            <input id="dateDebut" name="dateDebut" type="date" value="<?php if(isset($_REQUEST['dateDebut'])){echo $_REQUEST['dateDebut'];}else{ echo"";} ?>" onchange="verifDateDebut()" required>
-        </div>
-        <div>
-            <label for="dateFin">Date de fin</label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date ne dépasse pas le temps autorisé par l'entreprise -->
-            <input id="dateFin" name="dateFin" type="date" value="<?php if(isset($_REQUEST['dateFin'])){echo $_REQUEST['dateFin'];}else{ echo"";} ?>" onchange="verifDateFin()" required>
-        </div>
+        <div class="containerDate">
+            <form action="ajouterReservation.php" method="get">
+            <div>
+                <label for="dateDebut">Date de début</label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date n'est pas déjà dépassé -->
+                <input class="input-date" name="dateDebut" type="date" value="<?php if(isset($_REQUEST['dateDebut'])){echo $_REQUEST['dateDebut'];}else{ echo"";} ?>" onchange="verifDateDebut()" required>
+            </div>
+            <div>
+                <label for="dateFin">Date de fin</label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date ne dépasse pas le temps autorisé par l'entreprise -->
+                <input class="input-date" id="dateFin" name="dateFin" type="date" value="<?php if(isset($_REQUEST['dateFin'])){echo $_REQUEST['dateFin'];}else{ echo"";} ?>" onchange="verifDateFin()" required>
+            </div>
 
-        <button class="btn" id="voirVehicules" type="submit">Voir les véhicules utilisables</button>
-        <button class="btn" type="reset">Annuler</button>
+            <button class="btn" id="voirVehicules" type="submit">Voir les véhicules utilisables</button>
+            <button class="btn" type="reset">Annuler</button>
 
-        </form>
-    </div>
-
-
-    <?php
-    if(isset($_REQUEST['dateDebut']) && isset($_REQUEST['dateFin'])){
-        ?>
-        <div>
-            <form action="addReservation.php" method="get">
-                <label for="listeVehicule">Véhicules disponibles</label>
-                <select name="idVehicule" id="listeVehicule" onchange="verifVehicule()">
-                    <option value="default" selected>Sélectionez un véhicule</option>
-                    <?php
-                    require_once "connection.php";
-
-                    $sqlVehicule=$connection ->prepare('SELECT * FROM vehicule WHERE vehicule.idVehicule NOT IN(SELECT vehicule.idVehicule
-                                                                                                                FROM reservation
-                                                                                                                INNER JOIN vehicule ON reservation.idVehicule = vehicule.idVehicule
-                                                                                                                WHERE reservation.dateDebut >=:dateDebut AND reservation.dateFin <= :dateFin);');
-
-                    $sqlVehicule->bindParam(":dateDebut", $_REQUEST['dateDebut']);
-                    $sqlVehicule->bindParam(":dateFin", $_REQUEST['dateFin']);
-
-
-
-                                                                                                            
-                    $sqlVehicule->execute();
-                    $ligneVehicule = $sqlVehicule->fetchall();
-                    
-                    
-                    foreach($ligneVehicule as $vehicule){
-                        echo'<option value="'.$vehicule['idVehicule'].'">'.$vehicule['marque'].' '.$vehicule['modele'].'</option>';
-                    }
-
-                    ?>
-                </select>
-                <input type="date" name="dateDebut" id="" value="<?php echo $_REQUEST['dateDebut']; ?>" hidden>
-                <input type="date" name="dateFin" id="" value="<?php echo $_REQUEST['dateFin']; ?>" hidden>
-
-                <div>
-                    <button class="btn" id="submitReservation" type="submit">Valider</button>
-                    <button class="btn" type="reset">Annuler</button>
-                    
-                </div>
             </form>
         </div>
-    
-    <?php
-    }
-    ?>
-    <a href="../intranetPersonnel.php#popup4"><button class="btn">Retour</button></a>
-    
+
+
+        <?php
+        if(isset($_REQUEST['dateDebut']) && isset($_REQUEST['dateFin'])){
+            ?>
+            <div class="containerDate">
+                <form action="addReservation.php" method="get">
+                    <label for="listeVehicule">Véhicules disponibles</label>
+                    <select name="idVehicule" id="listeVehicule" onchange="verifVehicule()">
+                        <option value="default" selected>Sélectionez un véhicule</option>
+                        <?php
+                        require_once "connection.php";
+
+                        $sqlVehicule=$connection ->prepare('SELECT * FROM vehicule WHERE vehicule.idVehicule NOT IN(SELECT vehicule.idVehicule
+                                                                                                                    FROM reservation
+                                                                                                                    INNER JOIN vehicule ON reservation.idVehicule = vehicule.idVehicule
+                                                                                                                    WHERE reservation.dateDebut >=:dateDebut AND reservation.dateFin <= :dateFin);');
+
+                        $sqlVehicule->bindParam(":dateDebut", $_REQUEST['dateDebut']);
+                        $sqlVehicule->bindParam(":dateFin", $_REQUEST['dateFin']);
+
+
+
+                                                                                                                
+                        $sqlVehicule->execute();
+                        $ligneVehicule = $sqlVehicule->fetchall();
+                        
+                        
+                        foreach($ligneVehicule as $vehicule){
+                            echo'<option value="'.$vehicule['idVehicule'].'">'.$vehicule['marque'].' '.$vehicule['modele'].'</option>';
+                        }
+
+                        ?>
+                    </select>
+                    <input type="date" name="dateDebut" id="" value="<?php echo $_REQUEST['dateDebut']; ?>" hidden>
+                    <input type="date" name="dateFin" id="" value="<?php echo $_REQUEST['dateFin']; ?>" hidden>
+
+                    <div>
+                        <button class="btn" id="submitReservation" type="submit">Valider</button>
+                        <button class="btn" type="reset">Annuler</button>
+                        
+                    </div>
+                </form>
+            </div>
+        
+        <?php
+        }
+        ?>
+        <a class="center" href="../intranetPersonnel.php#popup4"><button class="btn">Retour</button></a>
+    </div>
+     
 
 
 </body>

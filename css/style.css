@@ -627,9 +627,9 @@ background-color: red;
 .popup {
   margin: 100px auto;
   padding: 20px;
-   background: #302c34;
+  background: #302c34;
   border-radius: 50px;
-  width: 80%; 
+  width: 80%;
   position: relative;
   transition: all 5s ease-in-out;
   z-index: 999;
@@ -664,7 +664,7 @@ background-color: red;
 }
 
 .popup .close:hover {
-  color: #06D85F;
+  color: #229b7e;
 }
 
 .popup#blur.active{
