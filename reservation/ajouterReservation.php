@@ -20,7 +20,7 @@ if(!isset($_SESSION['username'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleReservation.css">
+    <link rel="stylesheet" href="../css/styleForm.css">
 
     <title>Ajout Réservation</title>
 </head>
@@ -31,15 +31,15 @@ if(!isset($_SESSION['username'])){
             <h2 class="center" >Créér votre réservation</h2>
         </div>
     
-        <div class="containerDate">
+        <div class="container">
             <form action="ajouterReservation.php" method="get">
             <div>
                 <label for="dateDebut">Date de début: </label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date n'est pas déjà dépassé -->
-                <input class="input-date" name="dateDebut" type="date" value="<?php if(isset($_REQUEST['dateDebut'])){echo $_REQUEST['dateDebut'];}else{ echo"";} ?>" onchange="verifDateDebut()" required>
+                <input class="input" name="dateDebut" type="date" value="<?php if(isset($_REQUEST['dateDebut'])){echo $_REQUEST['dateDebut'];}else{ echo"";} ?>" onchange="verifDateDebut()" required>
             </div>
             <div>
                 <label for="dateFin">Date de fin: </label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date ne dépasse pas le temps autorisé par l'entreprise -->
-                <input class="input-date" id="dateFin" name="dateFin" type="date" value="<?php if(isset($_REQUEST['dateFin'])){echo $_REQUEST['dateFin'];}else{ echo"";} ?>" onchange="verifDateFin()" required>
+                <input class="input" id="dateFin" name="dateFin" type="date" value="<?php if(isset($_REQUEST['dateFin'])){echo $_REQUEST['dateFin'];}else{ echo"";} ?>" onchange="verifDateFin()" required>
             </div>
 
             <button class="btn" id="voirVehicules" type="submit">Voir les véhicules utilisables</button>
@@ -52,8 +52,8 @@ if(!isset($_SESSION['username'])){
         <?php
         if(isset($_REQUEST['dateDebut']) && isset($_REQUEST['dateFin'])){
             ?>
-            <div class="containerDate">
-                <form action="addReservation.php" method="get">
+            <form action="addReservation.php" method="get">
+                <div class="container">
                     <div>
                         <label for="listeVehicule">Véhicules disponibles</label>
                         <select name="idVehicule" id="listeVehicule" onchange="verifVehicule()">
@@ -91,8 +91,9 @@ if(!isset($_SESSION['username'])){
                         <button class="btn" type="reset">Annuler</button>
                         
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
+            
         
         <?php
         }
