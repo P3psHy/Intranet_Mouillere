@@ -17,6 +17,9 @@ foreach($lignePersonne as $personne){
         echo "Ok";
         $_SESSION['username']= $_REQUEST['username'];
         $_SESSION['aPermis'] = $personne['aPermis'];
+
+        require_once "php/loadJson.php";
+
         header("Location: intranetPersonnel.php");
 
     }else{
