@@ -11,6 +11,7 @@
 <body>
     <div class="box">
         <h2 class="center">Liste des Véhicules</h2>
+        <div class="scrollable">
         <?php
 
         require_once "../../php/connection.php";
@@ -25,8 +26,8 @@
             ?>
             <div style="margin-bottom:10px;">
                 <label>Voiture: <?php echo $vehicule['marque']." ".$vehicule['modele']; ?></label>
-                <a href="modifierForm.php?id=<?php echo $vehicule['idVehicule'] ?>"><button>Modifier</button></a>
-                <a href="supprimer.php?id=<?php echo $vehicule['idVehicule'] ?>"><button>Supprimer</button></a>
+                <a href="modifierForm.php?id=<?php echo $vehicule['idVehicule'] ?>"><button class="btn">Modifier</button></a>
+                <a href="supprimer.php?id=<?php echo $vehicule['idVehicule'] ?>"><button class="btn">Supprimer</button></a>
 
             </div>
             <?php
@@ -36,8 +37,12 @@
 
 
         ?>
-        <a href="ajouterForm.php"><button>Ajouter un utilisateur</button></a>
-        <a href="../BackOffice.php"><button>Retour</button></a>
+        </div>
+        <div>
+            <a href="ajouterForm.php"><button class="btn">Ajouter un véhicule</button></a>
+            <a href="../BackOffice.php"><button class="btn">Retour</button></a>
+        </div>
+        
     </div>
     
 </body>
