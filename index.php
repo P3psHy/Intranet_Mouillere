@@ -23,7 +23,7 @@
                     <br>
                     <div>
                         <label for="">Mot de passe</label><br>
-                        <input class="input" id="psw" name="psw" type="text" placeholder="mot de passe">
+                        <input class="input" id="psw" name="psw" type="psw" placeholder="mot de passe">
                     </div>
                     
 
