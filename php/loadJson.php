@@ -39,10 +39,10 @@ foreach($ligneGroup as $groupe){
 
 }
 
-file_put_contents("js/data.json", json_encode([]));
-$json = json_encode(array('js/data' => $arrayGroupes));
+file_put_contents("data.json", json_encode([]));
+$json = json_encode(array('data' => $arrayGroupes));
 
-file_put_contents("js/data.json", $json);
+file_put_contents("data.json", $json);
 //write json to file
 
 

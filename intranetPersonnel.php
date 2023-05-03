@@ -317,6 +317,6 @@ session_start();
     </footer>
 
       <script src="js/script.js"></script>
-      <script src="js/newScriptAnnuaire.js"></script>
+      <script src="newScriptAnnuaire.js"></script>
       
 </html>
