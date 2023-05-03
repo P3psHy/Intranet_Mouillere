@@ -45,8 +45,11 @@ if($sqlPersonne->rowCount() == 0){
 
             <input type="text" name="mail" value="<?php echo $_REQUEST['mail']?>" hidden>
 
-            <button class="btn" type="submit">Suivant</button>
-            <button class="btn" type="reset">Annuler</button>
+            <div>
+                <button class="btn" type="submit">Suivant</button>
+                <button class="btn" type="reset">Annuler</button>
+            </div>
+            
             </div>
         </form>
         <div>

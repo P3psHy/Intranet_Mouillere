@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="box">
-        <h2 class="center">Liste des personnes appartenant au groupe: xx</h2>
+        <h2 class="center">Liste des personnes</h2>
         <?php
 
         require_once "../../php/connection.php";

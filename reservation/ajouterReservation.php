@@ -61,10 +61,10 @@ if(!isset($_SESSION['username'])){
                             <?php
                             require_once "connection.php";
 
-                            $sqlVehicule=$connection ->prepare('SELECT * FROM vehicule WHERE vehicule.idVehicule NOT IN(SELECT vehicule.idVehicule
-                                                                                                                        FROM reservation
-                                                                                                                        INNER JOIN vehicule ON reservation.idVehicule = vehicule.idVehicule
-                                                                                                                        WHERE reservation.dateDebut >=:dateDebut AND reservation.dateFin <= :dateFin);');
+                            $sqlVehicule=$connection ->prepare('SELECT distinct vehicule.idVehicule FROM vehicule where idVehicule not in (
+                                SELECT distinct vehicule.idVehicule FROM reservation
+                                INNER JOIN vehicule ON reservation.idVehicule = vehicule.idVehicule and (reservation.dateDebut >= :dateFin OR reservation.dateFin >= :dateDebut )
+                                )');
 
                             $sqlVehicule->bindParam(":dateDebut", $_REQUEST['dateDebut']);
                             $sqlVehicule->bindParam(":dateFin", $_REQUEST['dateFin']);

@@ -28,7 +28,7 @@ foreach($lignePersonne as $personne){
     }
 }
 echo "bizarre";
-//header("Location: index.php");
+header("Location: index.php");
 
 
 
