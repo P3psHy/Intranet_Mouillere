@@ -3,7 +3,7 @@
 switch ($_REQUEST['id']) {
     case '1': //Fonctionnel
 
-        require_once "../../connection.php";
+        require_once "../../php/connection.php";
 
         $sqlModifGroupe=$connection ->prepare('UPDATE groupes SET nom=:nom, telephone=:telephone, mail=:mail WHERE id=:idGroupe');
         $sqlModifGroupe->bindParam(":nom", $_REQUEST['nom']);
@@ -21,7 +21,7 @@ switch ($_REQUEST['id']) {
     
     case '2': //fonctionnel
 
-        require_once "../../connection.php";
+        require_once "../../php/connection.php";
 
         
 

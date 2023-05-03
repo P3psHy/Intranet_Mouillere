@@ -3,7 +3,7 @@
 switch ($_REQUEST['id']) {
     case '1': //Fonctionnel
 
-        require_once "../../connection.php";
+        require_once "../../php/connection.php";
 
         $sqlAjoutGroupe=$connection ->prepare('INSERT INTO groupes(nom, telephone, mail) VALUES (:nom, :telephone, :mail)');
         $sqlAjoutGroupe->bindParam(":nom", $_REQUEST['nom']);
@@ -19,7 +19,7 @@ switch ($_REQUEST['id']) {
     
     case '2': //Fonctionnel
 
-        require_once "../../connection.php";
+        require_once "../../php/connection.php";
 
         $sqlAjoutPersonne=$connection ->prepare('INSERT INTO personnes(nom, telephone, mail, groupeId) VALUES (:nom, :telephone, :mail, :groupeId)');
         $sqlAjoutPersonne->bindParam(":nom", $_REQUEST['nom']);

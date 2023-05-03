@@ -3,7 +3,7 @@
 switch ($_REQUEST['id']) {
     case '1': //Fonctionnel Mettre en place un trigger pour supprimer tous les membres du groupe
 
-        require_once "../../connection.php";
+        require_once "../../php/connection.php";
 
         $sqlSupprGroupe=$connection ->prepare('DELETE FROM groupes WHERE id=:idGroupe');
         $sqlSupprGroupe->bindParam(":idGroupe", $_REQUEST['idGroupe']);
@@ -17,7 +17,7 @@ switch ($_REQUEST['id']) {
     
     case '2': //Fonctionnel
 
-        require_once "../../connection.php";
+        require_once "../../php/connection.php";
 
         $sqlSupprPersonne=$connection ->prepare('DELETE FROM personnes WHERE id=:id');
         $sqlSupprPersonne->bindParam(":id", $_REQUEST['idPersonne']);

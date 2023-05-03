@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/styleForm.css">
+
     <title>Ajouter</title>
 </head>
 <body>
@@ -13,7 +15,7 @@
 switch ($_REQUEST['id']) {
     case "1":    //formulaire modifier groupe
 
-        require_once "../../connection.php";
+        require_once "../../php/connection.php";
 
 
         $sqlGroupe=$connection ->prepare('SELECT * FROM groupes WHERE id = :idGroupe');
@@ -24,32 +26,39 @@ switch ($_REQUEST['id']) {
         $ligneGroupe = $sqlGroupe->fetchall();
         foreach($ligneGroupe as $groupe){
             ?>
-            <h2>Modification du groupe: <?php echo $groupe['nom'] ?></h2>
-            <form action="modifier.php" method="get">
+            <div class="box">
+                <h2 class="center">Modification du groupe: <?php echo $groupe['nom'] ?></h2>
+                <form action="modifier.php" method="get">
+                    <div class="container">
+                        <div>
+                            <label for="">Nom</label>
+                            <input class="input" type="text" name="nom" value="<?php echo $groupe['nom']; ?>" required>
+                        </div>
 
-                <div>
-                    <label for="">Nom</label>
-                    <input type="text" name="nom" value="<?php echo $groupe['nom']; ?>" required>
-                </div>
+                        <div>
+                            <label for="">Mail</label>
+                            <input class="input" type="text" name="mail" value="<?php echo $groupe['mail']; ?>">
+                        </div>
 
-                <div>
-                    <label for="">Mail</label>
-                    <input type="text" name="mail" value="<?php echo $groupe['mail']; ?>">
-                </div>
+                        <div>
+                            <label for="">Téléphone</label>
+                            <input class="input" type="text" name="telephone" value="<?php echo $groupe['telephone']; ?>">
+                        </div>
 
-                <div>
-                    <label for="">Téléphone</label>
-                    <input type="text" name="telephone" value="<?php echo $groupe['telephone']; ?>">
-                </div>
+                        <input type="text" name ="idGroupe" value="<?php echo $_REQUEST['idGroupe'] ?>" hidden>
+                        <input type="text" name ="id" value="1" hidden>
 
-                <input type="text" name ="idGroupe" value="<?php echo $_REQUEST['idGroupe'] ?>" hidden>
-                <input type="text" name ="id" value="1" hidden>
-
-
-                <button type="submit">Modifier</button>
-                <button type="reset">Annuler</button>
-            </form>
-            <a href="listeGroupe.php"><button>retour</button></a>
+                        <div style="margin-top:10px">
+                            <button class="btn" type="submit">Modifier</button>
+                            <button class="btn" type="reset">Annuler</button>
+                        </div>
+                        
+                    </div>
+                    
+                </form>
+                <a href="listeGroupe.php"><button class="btn">retour</button></a>
+            </div>
+            
 
             <?php
         }
@@ -60,7 +69,7 @@ switch ($_REQUEST['id']) {
 
     case "2": 
 
-        require_once "../../connection.php";
+        require_once "../../php/connection.php";
 
 
         $sqlPersonne=$connection ->prepare('SELECT * FROM personnes WHERE id = :id');

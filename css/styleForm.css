@@ -73,7 +73,9 @@ label{
 
 }
 
-
+.scrollable{
+    overflow-y: scroll;
+}
 
 .center{
     color: #ffffff; 
