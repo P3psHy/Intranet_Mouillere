@@ -7,7 +7,7 @@
     <title>BackOffice</title>
 </head>
 <body>
-    <h2>Choisissez</h2>
+    <h2>Choisissez une table</h2>
     <a href="BackAnnuaire/listeGroupe.php"><button>Annuaire</button></a>
     <a href="BackUtilisateur/listeUtilisateu.php"><button>Utilisateurs</button></a>
     <a href="BackVehicule/listeVehicule.php"><button>Véhicules</button></a>

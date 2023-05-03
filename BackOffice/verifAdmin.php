@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once "../connection.php";
+require_once "../php/connection.php";
 
 $sqlPersonne=$connection ->prepare('SELECT * FROM administrateur WHERE mail = :mail;');
 $sqlPersonne->bindParam(":mail", $_REQUEST['mail']);

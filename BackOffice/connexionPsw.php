@@ -1,16 +1,17 @@
 <?php
 
 session_start();
-require_once "../connection.php";
+require_once "../php/connection.php";
 
 $sqlPersonne=$connection ->prepare('SELECT * FROM administrateur WHERE mail = :mail;');
 $sqlPersonne->bindParam(":mail", $_REQUEST['mail']);
 
 $sqlPersonne->execute();
-$sqlPersonne->debugDumpParams();
+
+//Vérifier si l'email existe ou non dans la base de donnée
 if($sqlPersonne->rowCount() == 0){
     echo"email faux";
-    //header('Location: connexionMail.php');
+    //header('Location: index.php');
 }else{
 
 
@@ -25,23 +26,35 @@ if($sqlPersonne->rowCount() == 0){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styleForm.css">
+
     <title>BackOffice</title>
 </head>
 <body>
-    <h2>Connexion Administrateur</h2>
-    <form action="verifAdmin.php" method="get">
+    <div class="box">
         <div>
-            <label for="">Mot de passe</label><br>
-            <input id="psw" name="psw" type="password" placeholder="mot de passe" onchange="verifUsername()"><br/>
+        <h2 class="center">Connexion Administrateur</h2>
+
         </div>
+        <form action="verifAdmin.php" method="get">
+            <div class="container">
+            <div>
+                <label for="">Mot de passe</label><br>
+                <input class="input" id="psw" name="psw" type="password" placeholder="mot de passe" onchange="verifUsername()"><br/>
+            </div>
 
-        <input type="text" name="mail" value="<?php echo $_REQUEST['mail']?>" hidden>
+            <input type="text" name="mail" value="<?php echo $_REQUEST['mail']?>" hidden>
 
-        <div><button type="submit">Suivant</button></div>
-        <button type="reset">Annuler</button>
-        
-    </form>
-    <a href="connexionMail.php"><button>Retour</button>
+            <button class="btn" type="submit">Suivant</button>
+            <button class="btn" type="reset">Annuler</button>
+            </div>
+        </form>
+        <div>
+        <a class="center" href="index.php"><button class="btn"  >Retour</button>
+
+        </div>
+    </div>
+    
     <script src="jsConnexion.js"></script>
 </body>
 </html>
