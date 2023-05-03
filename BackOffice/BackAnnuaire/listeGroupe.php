@@ -35,8 +35,11 @@
 
             ?>
         </div>
-        <a href="ajouterForm.php?id=1"><button class="btn">Ajouter un groupe</button></a>
-        <a href="../BackOffice.php"><button class="btn">Retour</button></a>
+        <div>
+            <a href="ajouterForm.php?id=1"><button class="btn">Ajouter un groupe</button></a>
+            <a href="../BackOffice.php"><button class="btn">Retour</button></a>
+        </div>
+        
     </div>
     
 </body>

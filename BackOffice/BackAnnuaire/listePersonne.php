@@ -37,8 +37,11 @@
 
 
         ?>
-        <a href="ajouterForm.php?id=2&idGroupe=<?php echo $_REQUEST['idGroupe']; ?>"><button class="btn">Ajouter une personne</button></a>
-        <a href="listeGroupe.php"><button class="btn">Retour</button></a>
+        <div>
+            <a href="ajouterForm.php?id=2&idGroupe=<?php echo $_REQUEST['idGroupe']; ?>"><button class="btn">Ajouter une personne</button></a>
+            <a href="listeGroupe.php"><button class="btn">Retour</button></a>
+        </div>
+        
     </div>
     
 </body>

@@ -1,7 +1,7 @@
 <?php
 
 //fonctionnel
-require_once "../../connection.php";
+require_once "../../php/connection.php";
 
 $sqlAjoutUser=$connection ->prepare('INSERT INTO vehicule(marque, modele) VALUES (:marque, :modele)');
 $sqlAjoutUser->bindParam(":marque", $_REQUEST['marque']);

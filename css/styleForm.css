@@ -13,7 +13,7 @@ body{
     background: #302c34;
     border-radius: 50px;
     display: flex;
-    width: 60%;
+    width: 70%;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
@@ -33,7 +33,7 @@ body{
     display: inline-block;
     font: inherit;
     line-height: 1.5em;
-    padding: 0.5em 3.5em 0.5em 1em;
+    padding: 0.5em 3em 0.5em 1em;
 
     color: white;
     font-size: 15px;
@@ -47,7 +47,7 @@ body{
     display: inline-block;
     font: inherit;
     line-height: 1.5em;
-    padding: 0.5em 3.5em 0.5em 1em;
+    padding: 0.5em 3em 0.5em 1em;
 }
 
 select{
@@ -58,7 +58,7 @@ select{
     display: inline-block;
     font: inherit;
     line-height: 1.5em;
-    padding: 0.5em 3.5em 0.5em 1em;
+    padding: 0.5em 3em 0.5em 1em;
 }
 
 label{
@@ -76,7 +76,8 @@ label{
 }
 
 .scrollable{
-    overflow-y: scroll;
+    overflow-y: scroll; 
+    height:400px;
 }
 
 .center{

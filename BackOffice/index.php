@@ -21,8 +21,10 @@
                     <input class="input" id="mail" name="mail" type="text"><br/>
                 </div>
 
-                <div><button class="btn" type="submit">Suivant</button></div>
-                <button class="btn" type="reset">Annuler</button>
+                <div>
+                    <button class="btn" type="submit">Suivant</button>
+                    <button class="btn" type="reset">Annuler</button>
+                </div>
             </div>
             
         </form>

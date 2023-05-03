@@ -8,7 +8,7 @@ switch ($_REQUEST['id']) {
         $nomUser = $_REQUEST['prenom'].'.'.$_REQUEST['nom'];
         $nomUser = strtolower(str_replace(" ","-",$nomUser));
 
-        require_once "../../connection.php";
+        require_once "../../php/connection.php";
 
         $sqlModifGroupe=$connection ->prepare('UPDATE utilisateur SET nom=:nom, prenom=:prenom, aPermis=:aPermis, nomUser=:nomUser WHERE idUser=:idUser');
         $sqlModifGroupe->bindParam(":nom", $_REQUEST['nom']);
@@ -29,7 +29,7 @@ switch ($_REQUEST['id']) {
     //Changer le mot de passe d'un utilisateur
     case '2': //fonctionnel
 
-        require_once "../../connection.php";
+        require_once "../../php/connection.php";
 
         
 

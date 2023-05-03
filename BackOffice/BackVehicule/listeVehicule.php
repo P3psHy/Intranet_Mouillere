@@ -10,7 +10,7 @@
     <h2>Liste des Véhicules</h2>
     <?php
 
-    require_once "../../connection.php";
+    require_once "../../php/connection.php";
 
 
     $sqlVehicule=$connection ->prepare('SELECT * FROM vehicule;');

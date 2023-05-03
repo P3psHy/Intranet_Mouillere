@@ -6,7 +6,7 @@ $nomUser = strtolower(str_replace(" ","-",$nomUser));
 
 
 //fonctionnel
-require_once "../../connection.php";
+require_once "../../php/connection.php";
 
 $sqlAjoutUser=$connection ->prepare('INSERT INTO utilisateur(nom, prenom, psw, aPermis, nomUser) VALUES (:nom, :prenom, :psw, :aPermis, :nomUser)');
 $sqlAjoutUser->bindParam(":nom", $_REQUEST['nom']);
