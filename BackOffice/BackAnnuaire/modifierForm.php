@@ -81,58 +81,63 @@ switch ($_REQUEST['id']) {
         foreach($lignePersonne as $personne){
 
         ?>
-        
-        <h2>Modifier le profil de: <?php echo $personne['nom']; ?></h2>
-        <form action="modifier.php" method="get">
+        <div class="box">
+            <h2 class="center">Modifier le profil de: <?php echo $personne['nom']; ?></h2>
+            <form action="modifier.php" method="get">
+                <div class="container">
+                    <div>
+                        <label for="">Nom</label>
+                        <input class="input" type="text" name="nom" value="<?php echo $personne['nom'];?>" required>
+                    </div>
 
-            <div>
-                <label for="">Nom</label>
-                <input type="text" name="nom" value="<?php echo $personne['nom'];?>" required>
-            </div>
+                    <div>
+                        <label for="">Mail</label>
+                        <input class="input" type="text" name="mail"value="<?php echo $personne['mail'];?>">
+                    </div>
 
-            <div>
-                <label for="">Mail</label>
-                <input type="text" name="mail"value="<?php echo $personne['mail'];?>">
-            </div>
+                    <div>
+                        <label for="">Téléphone</label>
+                        <input class="input" type="text" name="telephone" value="<?php echo $personne['telephone'];?>">
+                    </div>
 
-            <div>
-                <label for="">Téléphone</label>
-                <input type="text" name="telephone" value="<?php echo $personne['telephone'];?>">
-            </div>
-
-            <div>
-                <label for="">Groupe</label>
-                <select name="groupeId" id="">
-                    
-                    <?php
-                    $sqlGroupe=$connection ->prepare('SELECT * FROM groupes');
-                
-                    $sqlGroupe->execute();
-            
-                    $ligneGroupe = $sqlGroupe->fetchall();
-                    foreach($ligneGroupe as $groupe){
-
-                        if($personne['groupeId'] == $groupe['id']){
-                            echo '<option value="'.$groupe['id'].'" selected>'.$groupe['nom'].'</option>';
-                        }else{
-                            echo '<option value="'.$groupe['id'].'">'.$groupe['nom'].'</option>';
-                        }
-
+                    <div>
+                        <label for="">Groupe</label>
+                        <select name="groupeId" id="">
+                            
+                            <?php
+                            $sqlGroupe=$connection ->prepare('SELECT * FROM groupes');
                         
-                    }
+                            $sqlGroupe->execute();
+                    
+                            $ligneGroupe = $sqlGroupe->fetchall();
+                            foreach($ligneGroupe as $groupe){
 
-                    ?>
-                </select>
-            </div>
+                                if($personne['groupeId'] == $groupe['id']){
+                                    echo '<option value="'.$groupe['id'].'" selected>'.$groupe['nom'].'</option>';
+                                }else{
+                                    echo '<option value="'.$groupe['id'].'">'.$groupe['nom'].'</option>';
+                                }
 
-            <input type="text" name ="idPersonne" value="<?php echo $personne['id'] ?>" hidden>
-            <input type="text" name ="id" value="2" hidden>
+                                
+                            }
 
+                            ?>
+                        </select>
+                    </div>
 
-            <button type="submit">Modifier</button>
-            <button type="reset">Annuler</button>
-        </form>
-        <a href="listePersonne.php?idGroupe=<?php echo $personne['groupeId'] ?>"><button>retour</button></a>
+                    <input type="text" name ="idPersonne" value="<?php echo $personne['id'] ?>" hidden>
+                    <input type="text" name ="id" value="2" hidden>
+
+                    <div style="margin-top:10px">
+                        <button class="btn" type="submit">Modifier</button>
+                        <button class="btn" type="reset">Annuler</button>
+                    </div>
+                    
+                </div>
+            </form>
+            <a href="listePersonne.php?idGroupe=<?php echo $personne['groupeId'] ?>"><button class="btn">retour</button></a>
+        </div>
+        
         <?php
 
         }
