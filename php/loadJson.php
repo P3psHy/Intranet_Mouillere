@@ -1,6 +1,6 @@
 <?php
 
-file_put_contents("../js/data.json", json_encode([]));
+
 
 require "connection.php" ;
 
@@ -13,7 +13,6 @@ $sqlGroup->execute();
 $ligneGroup = $sqlGroup->fetchall();
 
 $arrayGroupes = [];
-//$arrayPersonne[] = $objectPersonne;
 
 foreach($ligneGroup as $groupe){
 
@@ -40,9 +39,11 @@ foreach($ligneGroup as $groupe){
 
 }
 
+file_put_contents("js/data.json", json_encode([]));
+$json = json_encode(array('js/data' => $arrayGroupes));
 
-$json = json_encode(array('data' => $arrayGroupes));
-
+file_put_contents("js/data.json", $json);
+//write json to file
 
 
 

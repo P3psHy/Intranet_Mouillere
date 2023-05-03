@@ -24,7 +24,7 @@ foreach($lignePersonne as $personne){
 
     }else{
         echo "Pas Ok";
-        //header("Location: intranet.php");
+        header("Location: intranet.php");
 
     }
 }
