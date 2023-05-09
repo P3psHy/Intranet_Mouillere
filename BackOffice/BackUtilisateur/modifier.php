@@ -44,7 +44,7 @@ switch ($_REQUEST['id']) {
 
 
 
-        header("Location: listeGroupe.php");
+        header("Location: listeUtilisateur.php");
 
 
         break;

@@ -290,7 +290,6 @@ session_start();
                         <div class="button-car">
                           <br>
                           <a href="mailto:maintenance-si@lamouillere.fr">Oui</a>
-                          <a target="_blank" rel="noopener noreferrer" href="document/documents-utiles/note-de-frais.pdf">Non</a>
                         </div>
                       </div>
                     </div>
