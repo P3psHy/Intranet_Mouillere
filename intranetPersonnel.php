@@ -185,7 +185,7 @@ session_start();
               </div>
               <div class="panel_ressource_car">
                 <div class="box4">
-                  <a class="button4"href="#popup4"><img src="img/icons/voiture.png" style="width: 100px;"><span- style="color:white;">Réservations</span-></a>
+                  <a class="button4"href="#popup4"><img src="img/icons/voiture.png" style="width: 100px;"><span- style="color:white; margin-right:10px">Réservations</span-></a>
                 </div>
                 <div id="popup4" class="overlay">
                   <div class="popup4">
