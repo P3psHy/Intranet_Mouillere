@@ -200,7 +200,7 @@ session_start();
                                                             FROM reservation 
                                                             INNER JOIN utilisateur ON reservation.idUser = utilisateur.idUser 
                                                             INNER JOIN vehicule ON reservation.idVehicule=vehicule.idVehicule
-                                                            WHERE dateFin > now()
+                                                            WHERE dateFin >= now()
                                                             ORDER BY dateDebut;'
                                                         );
                     

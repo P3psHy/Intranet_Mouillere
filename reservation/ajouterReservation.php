@@ -61,10 +61,13 @@ if(!isset($_SESSION['username'])){
                             <?php
                             require_once "connection.php";
 
-                            $sqlVehicule=$connection ->prepare('SELECT distinct vehicule.idVehicule FROM vehicule where idVehicule not in (
-                                SELECT distinct vehicule.idVehicule FROM reservation
-                                INNER JOIN vehicule ON reservation.idVehicule = vehicule.idVehicule and (reservation.dateDebut >= :dateFin OR reservation.dateFin >= :dateDebut )
-                                )');
+                            $sqlVehicule=$connection ->prepare('SELECT * 
+                            FROM vehicule 
+                            WHERE idVehicule NOT IN (SELECT distinct vehicule.idVehicule 
+                                                     FROM reservation
+                                                     WHERE reservation.idVehicule = vehicule.idVehicule 
+                                                     AND (reservation.dateDebut >= :dateFin OR reservation.dateFin >= :dateDebut )
+                                                    )');
 
                             $sqlVehicule->bindParam(":dateDebut", $_REQUEST['dateDebut']);
                             $sqlVehicule->bindParam(":dateFin", $_REQUEST['dateFin']);
@@ -73,8 +76,9 @@ if(!isset($_SESSION['username'])){
 
                                                                                                                     
                             $sqlVehicule->execute();
+                            //$sqlVehicule->debugDumpParams();
                             $ligneVehicule = $sqlVehicule->fetchall();
-                            
+
                             
                             foreach($ligneVehicule as $vehicule){
                                 echo'<option value="'.$vehicule['idVehicule'].'">'.$vehicule['marque'].' '.$vehicule['modele'].'</option>';
