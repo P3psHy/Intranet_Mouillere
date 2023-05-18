@@ -8,12 +8,11 @@ $sqlPersonne->bindParam(":user", $_REQUEST['username']);
 
 $sqlPersonne->execute();
 
-
 $lignePersonne = $sqlPersonne->fetchall();
 
-
 foreach($lignePersonne as $personne){
-    if(strval($_REQUEST['psw']) == $personne['psw']){
+
+    if(password_verify(strval($_REQUEST['psw']),$personne['psw'])){
         echo "Ok";
         $_SESSION['username']= $_REQUEST['username'];
         $_SESSION['aPermis'] = $personne['aPermis'];
@@ -27,10 +26,5 @@ foreach($lignePersonne as $personne){
 
     }
 }
-echo "bizarre";
-
-
-
-
 
 ?>

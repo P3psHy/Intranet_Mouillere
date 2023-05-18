@@ -28,6 +28,4 @@ foreach($lignePersonne as $personne){
 }
 
 
-
-
 ?>
