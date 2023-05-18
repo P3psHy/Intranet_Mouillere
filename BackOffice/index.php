@@ -18,7 +18,7 @@
             <div class="container">
                 <div>
                     <label for="">Adresse Mail</label><br>
-                    <input class="input" id="mail" name="mail" type="text"><br/>
+                    <input class="input" id="mail" name="mail" type="text" placeholder="mail"><br/>
                 </div>
 
                 <div>

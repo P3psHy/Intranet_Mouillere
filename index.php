@@ -27,7 +27,7 @@
                     </div>
                     
 
-                    <p id="msg-user">Si vous avez oubliez votre mot de passe, veuillez contacter la Maintenance-SI.</p>
+                    <p id="msg-user">Si vous avez oublié votre mot de passe, veuillez contacter la Maintenance-SI.</p>
                     
                     <div><button class="btn" type="submit">Connexion</button></div>
                 </div>

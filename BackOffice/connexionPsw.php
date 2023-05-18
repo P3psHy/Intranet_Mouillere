@@ -10,8 +10,8 @@ $sqlPersonne->execute();
 
 //Vérifier si l'email existe ou non dans la base de donnée
 if($sqlPersonne->rowCount() == 0){
-    echo"email faux";
-    //header('Location: index.php');
+    //echo"email faux";
+    header('Location: index.php');
 }else{
 
 
