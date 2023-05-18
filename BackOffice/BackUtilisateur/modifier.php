@@ -31,10 +31,10 @@ switch ($_REQUEST['id']) {
 
         require_once "../../php/connection.php";
 
-        
+        $psw = password_hash($_REQUEST['psw'], PASSWORD_BCRYPT);
 
         $sqlModifPersonne=$connection ->prepare('UPDATE utilisateur SET psw=:psw WHERE idUser=:idUser');
-        $sqlModifPersonne->bindParam(":psw", $_REQUEST['psw']);
+        $sqlModifPersonne->bindParam(":psw", $psw);
         $sqlModifPersonne->bindParam(":idUser", $_REQUEST['idUser']);
         
 

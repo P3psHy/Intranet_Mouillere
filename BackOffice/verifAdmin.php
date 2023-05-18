@@ -12,8 +12,9 @@ $sqlPersonne->debugDumpParams();
 $lignePersonne = $sqlPersonne->fetchall();
 
 foreach($lignePersonne as $personne){
-    echo"<br/>".$personne['psw']."<br/>".$_REQUEST['psw']."<br/>";
-    if($_REQUEST['psw'] === $personne['psw']){
+    
+    if(password_verify($_REQUEST['psw'],$personne['psw'])){
+
         echo "Ok";
         $_SESSION['adminEstConnecte']= true;
     
