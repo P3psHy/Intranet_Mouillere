@@ -24,7 +24,7 @@ if(!isset($_SESSION['username'])){
 
     <title>Ajout Réservation</title>
 </head>
-<body onload="verifButton()">
+<body>
 
     <div class="box">
         <div>
@@ -32,10 +32,10 @@ if(!isset($_SESSION['username'])){
         </div>
     
         <div class="container">
-            <form action="ajouterReservation.php" method="get">
+            <form action="ajouterReservation.php" method="get" onload="verifButtonViewVehicle()">
             <div>
                 <label for="dateDebut">Date de début: </label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date n'est pas déjà dépassé -->
-                <input class="input" name="dateDebut" type="date" value="<?php if(isset($_REQUEST['dateDebut'])){echo $_REQUEST['dateDebut'];}else{ echo"";} ?>" onchange="verifDateDebut()" required>
+                <input class="input" id="dateDebut" name="dateDebut" type="date" value="<?php if(isset($_REQUEST['dateDebut'])){echo $_REQUEST['dateDebut'];}else{ echo"";} ?>" onchange="verifDateDebut()" required>
             </div>
             <div>
                 <label for="dateFin">Date de fin: </label> <!-- Si avoir du temps, ajouter du js pour vérifier que la date ne dépasse pas le temps autorisé par l'entreprise -->
@@ -52,7 +52,7 @@ if(!isset($_SESSION['username'])){
         <?php
         if(isset($_REQUEST['dateDebut']) && isset($_REQUEST['dateFin'])){
             ?>
-            <form action="addReservation.php" method="get">
+            <form action="addReservation.php" method="get" onload="verifButton()">
                 <div class="container">
                     <div>
                         <label for="listeVehicule">Véhicules disponibles</label>
@@ -110,6 +110,7 @@ if(!isset($_SESSION['username'])){
     </div>
      
 
+    <script src="../js/jsReservation.js"></script>
 
 </body>
 </html>

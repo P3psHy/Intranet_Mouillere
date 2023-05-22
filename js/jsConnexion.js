@@ -3,7 +3,7 @@ function verifUsername(){
 
     if(!(/^[a-z]+\.[a-z]+$/.test(username.value))){
         var error = document.createElement("p")
-        error.textContent="Nom d'utilisateir incorrect, veuillez utiliser ce format: prenom.nom";
+        error.textContent="Nom d'utilisateur incorrect, veuillez utiliser ce format: prenom.nom";
         error.setAttribute('id', 'erreurUsername');
         error.style.cssText="color: red";
 
