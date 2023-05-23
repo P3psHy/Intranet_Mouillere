@@ -21,13 +21,12 @@ function verifDateDebut(){
         check1=false;
         verifButtonViewVehicle();
     }else{
-        try{
-            document.getElementById("errorDateDebut").remove();
-        }finally{
-            check1=true;
-            verifButtonViewVehicle();
+        const checkIfElementExist = document.getElementById("errorDateDebut");
+        if(checkIfElementExist){
+            checkIfElementExist.remove();
         }
-        
+        check1=true;
+        verifButtonViewVehicle();
     }
 }
 
@@ -54,12 +53,13 @@ function verifDateFin(){
         check2=false;
         verifButtonViewVehicle();
     }else{
-        try{
-            document.getElementById("errorDateFin").remove();
-        }finally{
+        const checkIfElementExist = document.getElementById("errorDateFin");
+        if(checkIfElementExist){
+            checkIfElementExist.remove();
+        }
             check2=true;
             verifButtonViewVehicle();
-        }
+        
         
     }
 
