@@ -1,7 +1,13 @@
 function verifUsername(){
     const username = document.getElementById("username");
+    const errorUsername = document.getElementById("erreurUsername");
 
     if(!(/^[a-z]+\.[a-z]+$/.test(username.value))){
+        
+        if(errorUsername){
+            document.getElementById("erreurUsername").remove();
+        }
+
         var error = document.createElement("p")
         error.textContent="Nom d'utilisateur incorrect, veuillez utiliser ce format: prenom.nom";
         error.setAttribute('id', 'erreurUsername');
@@ -11,7 +17,10 @@ function verifUsername(){
         console.log('error');
     }else{
         console.log('ok');
-        document.getElementById("erreurUsername").remove();
+        if(errorUsername){
+            document.getElementById("erreurUsername").remove();
+        }
+        
 
     }
 

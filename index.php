@@ -40,6 +40,6 @@
         </div>
     </div>
     
-    <script src="jsConnexion.js"></script>
+    <script src="js/jsConnexion.js"></script>
 </body>
 </html>
