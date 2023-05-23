@@ -9,10 +9,10 @@ session_start();
 //     header('Location: https://intranet.campuslamouillere.fr/erreur');
 //     exit();
 // }
-  if(!isset($_SESSION['username'])){
+if(!isset($_SESSION['username'])){
     header('location: index.php');
-  }
-  require_once "php/loadJson.php";
+}
+require_once "php/loadJson.php";
 
 ?> 
 
@@ -138,20 +138,20 @@ session_start();
                       <div>
                         <h2>Charte Informatique</h2>
                         <br>
-                        <div class="button-car"><a target="_blank" rel="noopener noreferrer" href="document/chartes/Charte informatique pour le personnel La Mouillère.pdf" >PDF - Charte Informatique</a></div>
+                        <div class="button-car"><a target="_blank" rel="noopener noreferrer" href="" >PDF - Charte Informatique</a></div>
                       </div>
                         <br>
                         <h2>Charte Graphique</h2>
                         <br>
-                        <div class="button-car"><a target="_blank" rel="noopener noreferrer" href="document/chartes/charte-graphique.pdf">PDF - Charte Graphique</a></div>
+                        <div class="button-car"><a target="_blank" rel="noopener noreferrer" href="">PDF - Charte Graphique</a></div>
                         </div>
                         <br>
                       <div>
                         <h2>Plan des Batiments</h2>
                         <br>
                         <div class="button-car">
-                          <a target="_blank" rel="noopener noreferrer" href="document/documents-utiles/plan-des-etages.pdf">PDF - Plan Intérieur</a>
-                          <a target="_blank" rel="noopener noreferrer" href="document/documents-utiles/plan-exterieur.pdf">PDF - Plan Extérieur</a>
+                          <a target="_blank" rel="noopener noreferrer" href="">PDF - Plan Intérieur</a>
+                          <a target="_blank" rel="noopener noreferrer" href="">PDF - Plan Extérieur</a>
                         </div>
                         <br>
                       </div>
@@ -170,8 +170,8 @@ session_start();
                         <br>
                         <h2>International/Handicap</h2><br/>
                         <div class="button-car">
-                          <a target="_blank" rel="noopener noreferrer" href="http://campuslamouillere.fr/le-campus/#mobilite-internationale">Référent Mobilité International</a>
-                          <a target="_blank" rel="noopener noreferrer" href="http://campuslamouillere.fr/le-campus/#inclusion">Référent Handicap</a>
+                          <a target="_blank" rel="noopener noreferrer" href="">Référent Mobilité International</a>
+                          <a target="_blank" rel="noopener noreferrer" href="">Référent Handicap</a>
                         </div>
                       </div> 
                     </div>

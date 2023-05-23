@@ -1,3 +1,7 @@
+<?php
+require_once "../verifAdminConnected.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +19,6 @@
 switch ($_REQUEST['id']) {
     //formulaire ajouter groupe
     case "1":
-
-        
 
         ?>
         <div class="box">

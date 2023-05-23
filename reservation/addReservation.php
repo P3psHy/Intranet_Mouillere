@@ -1,6 +1,8 @@
 <?php
 session_start();
-    require_once "connection.php";
+    require_once "../php/connection.php";
+    require_once "../php/verifConnected.php";
+
 
 
     $sqlPersonne=$connection ->prepare('SELECT idUser FROM utilisateur WHERE nomUser = :user');

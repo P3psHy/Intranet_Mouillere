@@ -1,3 +1,7 @@
+<?php
+require_once "verifAdminConnected.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

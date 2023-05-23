@@ -1,13 +1,11 @@
 <?php
 session_start();
-if(!isset($_SESSION['username'])){
-    header('location: index.php');
-}else{
-    if(!$_SESSION['aPermis']){
-        echo'<script>alert("Vous n\'avez pas le permis, vous ne pouvez pas faire de réservation de véhicule")</script>';
-        echo'<a href="index.php"><button>Retour au menu de connexion</button></a>';
+require_once "../php/verifConnected.php";
+if(!$_SESSION['aPermis']){
+    echo'<script>alert("Vous n\'avez pas le permis, vous ne pouvez pas faire de réservation de véhicule")</script>';
+    echo'<a href="../intranetPersonnel.php"><button>Retour</button></a>';
 
-    }else{
+}else{
 
     
 
@@ -59,7 +57,7 @@ if(!isset($_SESSION['username'])){
                         <select name="idVehicule" id="listeVehicule" onchange="verifVehicule()">
                             <option value="default" selected>Sélectionez un véhicule</option>
                             <?php
-                            require_once "connection.php";
+                            require_once "../php/connection.php";
 
                             $sqlVehicule=$connection ->prepare('SELECT * 
                             FROM vehicule 
@@ -118,6 +116,6 @@ if(!isset($_SESSION['username'])){
 <?php
         
     }
-}
+
         
 ?>
