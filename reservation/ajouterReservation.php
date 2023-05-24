@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "../php/verifConnected.php";
 if(!$_SESSION['aPermis']){
     echo'<script>alert("Vous n\'avez pas le permis, vous ne pouvez pas faire de réservation de véhicule")</script>';
