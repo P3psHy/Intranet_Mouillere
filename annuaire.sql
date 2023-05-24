@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mar. 02 mai 2023 à 09:46
+-- Hôte : localhost
+-- Généré le : mer. 24 mai 2023 à 15:47
 -- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Version de PHP : 8.1.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,19 +27,17 @@ SET time_zone = "+00:00";
 -- Structure de la table `administrateur`
 --
 
-DROP TABLE IF EXISTS `administrateur`;
-CREATE TABLE IF NOT EXISTS `administrateur` (
+CREATE TABLE `administrateur` (
   `mail` varchar(50) NOT NULL,
-  `psw` varchar(255) NOT NULL,
-  PRIMARY KEY (`mail`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `psw` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `administrateur`
 --
 
 INSERT INTO `administrateur` (`mail`, `psw`) VALUES
-('test@test.test', '123');
+('admin@local.fr', '$2y$10$4hHfWzQlKyxF73.08VYxA.hE6mMIF.OnWpSbLXS56dsHpR4hn/P2C');
 
 -- --------------------------------------------------------
 
@@ -47,14 +45,12 @@ INSERT INTO `administrateur` (`mail`, `psw`) VALUES
 -- Structure de la table `groupes`
 --
 
-DROP TABLE IF EXISTS `groupes`;
-CREATE TABLE IF NOT EXISTS `groupes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `groupes` (
+  `id` int(11) NOT NULL,
   `nom` varchar(100) NOT NULL,
   `telephone` varchar(100) DEFAULT NULL,
-  `mail` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `mail` varchar(100) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `groupes`
@@ -67,22 +63,29 @@ INSERT INTO `groupes` (`id`, `nom`, `telephone`, `mail`) VALUES
 (4, 'Groupe 4', '44 44 44 44 44', 'groupe4@gmail.com'),
 (5, 'Groupe 5', '55 55 55 55 55', NULL);
 
+--
+-- Déclencheurs `groupes`
+--
+DELIMITER $$
+CREATE TRIGGER `test_delete_personnes` BEFORE DELETE ON `groupes` FOR EACH ROW BEGIN
+    DELETE FROM personnes WHERE personnes.groupeId = old.id;
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `personnes`
 --
 
-DROP TABLE IF EXISTS `personnes`;
-CREATE TABLE IF NOT EXISTS `personnes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `personnes` (
+  `id` int(11) NOT NULL,
   `nom` varchar(150) NOT NULL,
   `mail` varchar(150) DEFAULT NULL,
   `telephone` varchar(150) DEFAULT NULL,
-  `groupeId` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `groupeId` (`groupeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+  `groupeId` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `personnes`
@@ -99,7 +102,7 @@ INSERT INTO `personnes` (`id`, `nom`, `mail`, `telephone`, `groupeId`) VALUES
 (8, 'Tata Ayrault', NULL, '19 19 19 19 19', 4),
 (9, 'Jeremy Michtouille', 'j.michtouille@gmail.com', NULL, 5),
 (10, 'LeGars Anonyme', 'g.anonyme@gmail.com', '21 21 21 21 21', 5),
-(11, 'Romy TheCat', 'r.thecat', '16 16 16 16 16', 5),
+(11, 'Romy TheCat', 'r.thecat@gmail.com', '16 16 16 16 16', 5),
 (12, 'test', 'test', 'test', NULL),
 (13, 'test', 'test@test.fr', '123', NULL);
 
@@ -109,28 +112,23 @@ INSERT INTO `personnes` (`id`, `nom`, `mail`, `telephone`, `groupeId`) VALUES
 -- Structure de la table `reservation`
 --
 
-DROP TABLE IF EXISTS `reservation`;
-CREATE TABLE IF NOT EXISTS `reservation` (
-  `idReservation` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `reservation` (
+  `idReservation` int(11) NOT NULL,
   `dateDebut` date NOT NULL,
   `dateFin` date NOT NULL,
   `idUser` int(11) NOT NULL,
-  `idVehicule` int(11) NOT NULL,
-  PRIMARY KEY (`idReservation`),
-  KEY `Reservation_Utilisateur_FK` (`idUser`),
-  KEY `Reservation_Vehicule0_FK` (`idVehicule`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+  `idVehicule` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `reservation`
 --
 
 INSERT INTO `reservation` (`idReservation`, `dateDebut`, `dateFin`, `idUser`, `idVehicule`) VALUES
-(5, '2023-04-13', '2023-04-15', 6, 3),
-(6, '2023-04-15', '2023-04-17', 6, 5),
-(10, '2023-04-19', '2023-04-20', 4, 1),
-(11, '2023-04-18', '2023-04-21', 6, 4),
-(12, '2023-04-18', '2023-04-20', 6, 2);
+(21, '2023-06-06', '2023-06-08', 6, 1),
+(23, '2023-06-07', '2023-06-09', 4, 2),
+(24, '2023-06-11', '2023-06-14', 4, 3),
+(25, '2023-06-09', '2023-06-10', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -138,29 +136,27 @@ INSERT INTO `reservation` (`idReservation`, `dateDebut`, `dateFin`, `idUser`, `i
 -- Structure de la table `utilisateur`
 --
 
-DROP TABLE IF EXISTS `utilisateur`;
-CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `idUser` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `utilisateur` (
+  `idUser` int(11) NOT NULL,
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
-  `psw` varchar(50) NOT NULL,
+  `psw` varchar(255) DEFAULT NULL,
   `aPermis` tinyint(1) DEFAULT NULL,
-  `nomUser` varchar(50) NOT NULL,
-  PRIMARY KEY (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+  `nomUser` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`idUser`, `nom`, `prenom`, `psw`, `aPermis`, `nomUser`) VALUES
-(1, 'Platza', 'Michel', '123', 0, 'michel.platza'),
-(4, 'Ayrault', 'Super', '123', 1, 'super.ayrault'),
-(5, 'De Oliveira', 'Vincent', '123', 0, 'vincent.de-oliveira'),
-(6, 'Chanudet', 'Martin', '123', 1, 'martin.chanudet'),
-(7, 'Ragu', 'Jules', '123', 0, 'jules.ragu'),
-(8, 'Batista', 'Ugo', '123', 0, 'ugo.batista'),
-(9, 'Manceau', 'Arthur', '123', 1, 'arthur.manceau');
+(1, 'Platza', 'Michel', '$2y$10$QTllS1gIp6LcfXK0hAvfyOluQreo9YbWqIXgBq4b4KZknIvU2liVu', 0, 'michel.platza'),
+(4, 'Ayrault', 'Super', '$2y$10$bE71xPuEiazRLJ3t9v9CcuiEJ3hMi0Jj.Aq70lmOfZ8w02JWLDJQe', 1, 'super.ayrault'),
+(5, 'De Oliveira', 'Vincent', '$2y$10$6Gwh/xMZwP4wzePld1aFTeDxoRltmnToqvgoX6Bv0RdyZRZm4YAUa', 0, 'vincent.de-oliveira'),
+(6, 'Chanudet', 'Martin', '$2y$10$SDFPNX5FdpfvllKosrFdBuYloyWPr0qGqifAR9qhDUBi33soP9k9m', 1, 'martin.chanudet'),
+(7, 'Ragu', 'Jules', '$2y$10$ARaKojzbmEYFsFbjGdS6DOB.GgrXgkoo3qqbPgWz6lRYZCBkMG5WW', 0, 'jules.ragu'),
+(8, 'Batista', 'Ugo', '$2y$10$mwx9ywKATBTxKHzOvEeBp.jHV/6VEQIoIYjoLe1lTtRxKYYytmYJ2', 0, 'ugo.batista'),
+(11, 'Manceau', 'Arthur', '$2y$10$6wT7GHR/7FTMqynuyZiSXu489linb/n3MS5tCzbHomwKmhJG0Gdce', 1, 'arthur.manceau');
 
 -- --------------------------------------------------------
 
@@ -168,13 +164,11 @@ INSERT INTO `utilisateur` (`idUser`, `nom`, `prenom`, `psw`, `aPermis`, `nomUser
 -- Structure de la table `vehicule`
 --
 
-DROP TABLE IF EXISTS `vehicule`;
-CREATE TABLE IF NOT EXISTS `vehicule` (
-  `idVehicule` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `vehicule` (
+  `idVehicule` int(11) NOT NULL,
   `marque` varchar(50) NOT NULL,
-  `modele` varchar(50) NOT NULL,
-  PRIMARY KEY (`idVehicule`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  `modele` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `vehicule`
@@ -186,6 +180,83 @@ INSERT INTO `vehicule` (`idVehicule`, `marque`, `modele`) VALUES
 (3, 'Porsche', '911'),
 (4, 'Citroën', 'C15'),
 (5, 'Renault', 'Express');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `administrateur`
+--
+ALTER TABLE `administrateur`
+  ADD PRIMARY KEY (`mail`);
+
+--
+-- Index pour la table `groupes`
+--
+ALTER TABLE `groupes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `personnes`
+--
+ALTER TABLE `personnes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `groupeId` (`groupeId`);
+
+--
+-- Index pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`idReservation`),
+  ADD KEY `Reservation_Utilisateur_FK` (`idUser`),
+  ADD KEY `Reservation_Vehicule0_FK` (`idVehicule`);
+
+--
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`idUser`);
+
+--
+-- Index pour la table `vehicule`
+--
+ALTER TABLE `vehicule`
+  ADD PRIMARY KEY (`idVehicule`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `groupes`
+--
+ALTER TABLE `groupes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT pour la table `personnes`
+--
+ALTER TABLE `personnes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  MODIFY `idReservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT pour la table `vehicule`
+--
+ALTER TABLE `vehicule`
+  MODIFY `idVehicule` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Contraintes pour les tables déchargées
