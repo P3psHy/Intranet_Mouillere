@@ -89,8 +89,7 @@ if(!$_SESSION['aPermis']){
 
                     <div>
                         <button class="btn" id="submitReservation" type="submit">Valider</button>
-                        <button class="btn" type="reset">Annuler</button>
-                        
+                        <a href="ajouterReservation.php"><button class="btn">Annuler</button></a>
                     </div>
                 </div>
             </form>

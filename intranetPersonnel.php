@@ -216,7 +216,7 @@ require_once "php/loadJson.php";
                             ?>
                             <div style="margin-bottom:10px; color:white;">
                             <span>Véhicule: <?php echo $reservation['marque'].' '.$reservation['modele'];?> réservé par <?php echo $reservation['prenom'].' '.$reservation['nom']; ?> 
-                            du <?php echo $reservation['dateDebut']; ?> au <?php echo $reservation['dateFin']; ?></span>
+                            du <?php echo date('d-m-Y', strtotime($reservation['dateDebut'])); ?> au <?php echo date('d-m-Y', strtotime($reservation['dateFin'])); ?></span>
                             
                             <?php
                             //Vérifier si la réservation appartient à la personne connecté afin de lui donner le droit de la retirer
