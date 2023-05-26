@@ -310,7 +310,7 @@ require_once "php/loadJson.php";
           </div>
         </div>
       </div>
-    </center>    
+    </center>  
   </body>  
     <footer>
       <nav class="nav_footer">  
